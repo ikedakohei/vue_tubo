@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>商品一覧</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+<div id="app">
+  <div class="container">
+    <h1 class="pageTitle">商品一覧</h1>
+    <!--検索欄-->
+    <div class="search">
+      <div class="result">
+        検索結果 <span class="count">6件</span>
+      </div>
+      <div class="condition">
+        <div class="target">
+          <label><input type="checkbox"> セール対象</label>
+          <label><input type="checkbox"> 送料無料</label>
+        </div>
+        <div class="sort">
+          <label for="sort">並び替え</label>
+          <select id="sort" class="sorting">
+            <option value="1">標準</option>
+            <option value="2">価格が安い順</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <!--商品一覧-->
+    <div class="list">
+      <div class="item">
+        <figure class="image">
+          <div class="status">SALE</div>
+          <img src="images/01.jpg" alt="">
+          <figcaption>Michael<br>スマホケース</figcaption>
+        </figure>
+        <div class="detail">
+          <div class="price"><span>1,580</span>円（税込）</div>
+          <div class="shipping-fee none">送料無料</div>
+        </div>
+      </div>
+      <div class="item">
+        <figure class="image">
+          <div class="status">SALE</div>
+          <img src="images/02.jpg" alt="">
+          <figcaption>Raphael<br>スマホケース</figcaption>
+        </figure>
+        <div class="detail">
+          <div class="price"><span>1,580</span>円（税込）</div>
+          <div class="shipping-fee none">送料無料</div>
+        </div>
+      </div>
+      <div class="item">
+        <figure class="image">
+          <div class="status">SALE</div>
+          <img src="images/03.jpg" alt="">
+          <figcaption>Gabriel<br>スマホケース</figcaption>
+        </figure>
+        <div class="detail">
+          <div class="price"><span>1,580</span>円（税込）</div>
+          <div class="shipping-fee">+送料240円</div>
+        </div>
+      </div>
+      <div class="item">
+        <figure class="image">
+          <div class="status">SALE</div>
+          <img src="images/04.jpg" alt="">
+          <figcaption>Uriel<br>スマホケース</figcaption>
+        </figure>
+        <div class="detail">
+          <div class="price"><span>980</span>円（税込）</div>
+          <div class="shipping-fee none">送料無料</div>
+        </div>
+      </div>
+      <div class="item">
+        <figure class="image">
+          <img src="images/05.jpg" alt="">
+          <figcaption>Ariel<br>スマホケース</figcaption>
+        </figure>
+        <div class="detail">
+          <div class="price"><span>980</span>円（税込）</div>
+          <div class="shipping-fee none">送料無料</div>
+        </div>
+      </div>
+      <div class="item">
+        <figure class="image">
+          <img src="images/06.jpg" alt="">
+          <figcaption>Azrael<br>スマホケース</figcaption>
+        </figure>
+        <div class="detail">
+          <div class="price"><span>1,580</span>円（税込）</div>
+          <div class="shipping-fee none">送料無料</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://jp.vuejs.org/js/vue.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

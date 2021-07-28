@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>自動見積フォーム</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+<div id="app">
+  <div class="container bg-dark text-white p-5">
+    <h2 class="text-center border-bottom border-white pb-3 mb-5">
+      自動見積フォーム
+    </h2>
+    <form>
+      <!--ムービーの種類-->
+      <div class="form-group row">
+        <label class="col-md-3 col-form-label pt-0">制作したいムービー
+          <span class="badge badge-danger">必須</span>
+        </label>
+        <div class="col-md-9">
+          <div class="row">
+            <div class="col-md-5">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="movie_type" id="type1" value="余興ムービー" checked>
+                <label class="form-check-label" for="type1">余興ムービー</label>
+              </div>
+            </div>
+            <div class="col-md-5">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="movie_type" id="type2" value="サプライズムービー">
+                <label class="form-check-label" for="type2">サプライズムービー</label>
+              </div>
+            </div>
+            <div class="col-md-5">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="movie_type" id="type3" value="生い立ちムービー">
+                <label class="form-check-label" for="type3">生い立ちムービー</label>
+              </div>
+            </div>
+            <div class="col-md-5">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="movie_type" id="type4" value="オープニングムービー">
+                <label class="form-check-label" for="type4">オープニングムービー</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--挙式日-->
+      <div class="form-group row">
+        <label class="col-md-3 col-form-label pt-0" for="wedding_date">挙式日
+          <span class="badge badge-danger">必須</span>
+        </label>
+        <div class="col-md-9">
+          <input class="form-control" type="date" id="wedding_date" placeholder="日付をお選びください。">
+          <small class="form-text">結婚式のお日にちを選択してください。</small>
+        </div>
+      </div>
+      <!--DVD仕上がり予定日-->
+      <div class="form-group row">
+        <label class="col-md-3 col-form-label pt-0" for="delivery_date">DVD仕上がり予定日
+          <span class="badge badge-danger">必須</span>
+        </label>
+        <div class="col-md-9">
+          <input class="form-control" type="date" id="delivery_date" min="2019-01-03" placeholder="日付をお選びください。">
+          <small class="form-text">挙式日の1週間前までにDVDが必要な場合が多いため、仕上がり予定日を挙式日の1週間前に設定しております。</small>
+        </div>
+      </div>
+      <!--小計：基本料金-->
+      <div class="form-group row">
+        <label class="col-md-3 col-form-label pt-0">基本料金（税込）</label>
+        <div class="col-md-9">
+          <div class="input-group">
+            <input type="text" class="form-control text-right" id="sum_base" value="32,400" readonly>
+            <div class="input-group-append">
+              <label class="input-group-text">円</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--オプションメニュー-->
+      <div class="form-group row">
+        <label class="col-md-3 col-form-label pt-0">オプションメニュー
+          <span class="badge badge-info">任意</span>
+        </label>
+        <div class="col-md-9">
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="opt1">
+            <label class="form-check-label" for="opt1">BGM手配　＋5,400円</label>
+            <small class="form-text">当社で曲を手配させていただく場合は、1曲あたり5,400円（税込）がかかります。</small>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="opt2">
+            <label class="form-check-label" for="opt2">撮影　＋5,400円</label>
+            <small class="form-text">当社に撮影を依頼する場合の料金です。</small>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="opt3">
+            <label class="form-check-label" for="opt3">DVD盤面印刷　＋5,400円</label>
+            <small class="form-text">当社でDVDの盤面をデザインさせていただく場合は、5,400円（税込）がかかります。</small>
+          </div>
+          <div class="form-row mb-3 align-items-center">
+            <div class="col-auto">
+              <label class="form-check-label" for="opt4">写真スキャニング　＋540円</label>
+            </div>
+            <div class="col-auto">
+              <div class="input-group">
+                <input class="form-control" type="number" id="opt4" value="0" min="0" max="30">
+                <div class="input-group-append">
+                  <label class="input-group-text" for="opt4">枚</label>
+                </div>
+              </div>
+            </div>
+            <small class="form-text">プリントアウトした写真のスキャニングをご希望の方は、1枚あたり540円にて承ります。</small>
+          </div>
+        </div>
+      </div>
+      <!--小計：オプション料金-->
+      <div class="form-group row">
+        <label class="col-md-3 col-form-label pt-0">オプション料金（税込）</label>
+        <div class="col-md-9">
+          <div class="input-group">
+            <input type="text" class="form-control text-right" id="sum_opt" value="0" readonly>
+            <div class="input-group-append">
+              <label class="input-group-text">円</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--合計：基本料金＋オプション料金-->
+      <div class="form-group row">
+        <label class="col-md-3 col-form-label pt-0">合計（税込）</label>
+        <div class="col-md-9">
+          <div class="input-group">
+            <input type="text" class="form-control text-right" id="sum_total" value="32,400" readonly>
+            <div class="input-group-append">
+              <label class="input-group-text">円</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<script src="https://jp.vuejs.org/js/vue.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

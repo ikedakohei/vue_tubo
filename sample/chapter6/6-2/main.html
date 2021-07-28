@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>商品一覧</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="components/product-header.css">
+  <link rel="stylesheet" href="components/product.css">
+  <link rel="stylesheet" href="components/product-list.css">
+</head>
+<body>
+<div id="app">
+  <product-list v-bind:products="products"></product-list>
+</div>
+<script src="https://jp.vuejs.org/js/vue.js"></script>
+<script src="common/filter.js"></script>
+<script src="components/product-header.js"></script>
+<script src="components/product.js"></script>
+<script src="components/product-list.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

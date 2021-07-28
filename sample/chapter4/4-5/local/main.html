@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>商品一覧</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+<div id="app">
+  <div class="container">
+    <h1 class="pageTitle">商品一覧</h1>
+    <!--検索欄-->
+    <div class="search">
+      <div class="result">
+        検索結果 <span class="count">{{filteredList.length}}件</span>
+      </div>
+      <div class="condition">
+        <div class="target">
+          <label><input type="checkbox" v-model="showSaleItem"> セール対象</label>
+          <label><input type="checkbox" v-model="showDelvFree"> 送料無料</label>
+        </div>
+        <div class="sort">
+          <label for="sort">並び替え</label>
+          <select id="sort" class="sorting" v-model.number="sortOrder">
+            <option value="1">標準</option>
+            <option value="2">価格が安い順</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <!--商品一覧-->
+    <div v-if="isError" class="error">{{message}}</div>
+    <div class="list">
+      <div class="item" v-for="product in filteredList" v-bind:key="product.id">
+        <figure class="image">
+          <template v-if="product.isSale">
+            <div class="status">SALE</div>
+          </template>
+          <img v-bind:src="product.image" alt="">
+          <figcaption v-html="product.name"></figcaption>
+        </figure>
+        <div class="detail">
+          <div class="price"><span>{{product.price | number_format}}</span>円（税込）</div>
+          <template v-if="product.delv == 0">
+            <div class="shipping-fee none">送料無料</div>
+          </template>
+          <template v-else>
+            <div class="shipping-fee">+送料{{product.delv | number_format}}円</div>
+          </template>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://jp.vuejs.org/js/vue.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
