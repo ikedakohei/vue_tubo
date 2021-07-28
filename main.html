@@ -2,27 +2,14 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>サンプル</title>
+  <link rel="stylesheet" href="main.css">
 </head>
 <body>
   <div id="app">
-    <ul>
-      <li v-for="item in list">{{ item.name }} {{ item.price }}円</li>
-    </ul>
+    {{ message }}
   </div>
   <script src="https://jp.vuejs.org/js/vue.js"></script>
-  <script>
-    const app = new Vue({
-      el: '#app',
-      data: {
-        list: [
-          {name: '商品A', price: 1000},
-          {name: '商品B', price: 2000},
-          {name: '商品C', price: 980},
-        ],
-      },
-    });
-  </script>
+  <script src="main.js"></script>
 </body>
 </html>
