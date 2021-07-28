@@ -7,18 +7,22 @@
 </head>
 <body>
   <div id="app">
-    {{ price }}円
+    <ul>
+      <li v-for="item in list">{{ item.name }} {{ item.price }}円</li>
+    </ul>
   </div>
   <script src="https://jp.vuejs.org/js/vue.js"></script>
   <script>
     const app = new Vue({
       el: '#app',
       data: {
-        price: 0
-      }
+        list: [
+          {name: '商品A', price: 1000},
+          {name: '商品B', price: 2000},
+          {name: '商品C', price: 980},
+        ],
+      },
     });
-
-    app.price = 1000;
   </script>
 </body>
 </html>
