@@ -7,24 +7,7 @@
 </head>
 <body>
   <div id="app">
-    <p :style="{fontSize: pSize}">文字サイズは{{ pSize }}です。</p>
-    <p :class="{capitalize: isCapital}">hello vue!</p>
-    <table border="1">
-      <tr>
-        <th>商品コード</th>
-        <th>商品名</th>
-      </tr>
-      <tr v-for="item in products" :key="item.code">
-        <td>{{ item.code }}</td>
-        <td>{{ item.name }}</td>
-      </tr>
-    </table>
-    <div>{{ price }}円 <span v-if="price < 1000">セール実施中！</span></div>
-    <div>{{ price }}円 <span v-show="price < 1000">セール実施中！</span></div>
-    <div>
-      <span v-if="stock >= 1">残り{{ stock }}個です。</span>
-      <span v-else>在庫切れです。</span>
-    </div>
+    {{ price | number_format | unit }}
   </div>
   <script src="https://jp.vuejs.org/js/vue.js"></script>
   <script src="main.js"></script>
