@@ -1,14 +1,16 @@
 const app = new Vue({
   el: '#app',
   data: {
-    price: 1000
+    show: true,
   },
-  filters: {
-    number_format(val) {
-      return val.toLocaleString();
-    },
-    unit(val) {
-      return val + '円';
-    },
-  }
+  methods: {
+    now1() {
+      return (new Date()).toLocaleString();
+    }
+  },
+  computed: {
+    now2() {
+      return (new Date()).toLocaleString();
+    }
+  },
 });
