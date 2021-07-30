@@ -1,18 +1,25 @@
 const app = new Vue({
   el: '#app',
   data: {
-    point: { x: 0, y: 0 }
-  },
-  created() {
-    addEventListener('mousemove', this.mousemoveHandler);
-  },
-  beforeDestroy() {
-    removeEventListener('mousemove', this.mousemoveHandler);
+    message: '',
+    stock: 10,
   },
   methods: {
-    mousemoveHandler($event) {
-      this.point.x = $event.clientX;
-      this.point.y = $event.clientY;
-    }
+    onDeleteItem() {
+      this.stock--;
+    },
   },
+  computed: {
+    statusMessage() {
+      if (this.stock === 0) {
+        return this.message = '売り切れ';
+      }
+      return this.message = '';
+    },
+  },
+  watch: {
+    statusMessage() {
+      console.log(`商品のステータスが変化しました: ${this.stock}`)
+    }
+  }
 });
